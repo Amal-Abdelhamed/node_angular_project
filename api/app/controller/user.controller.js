@@ -1,5 +1,7 @@
+const { compare } = require("bcrypt")
 const userModel = require("../../database/models/user.model")
 const Handler = require("../handler")
+const bcrypt = require("bcrypt")
 class User {
     static add = async (req, res) => {
         try {
@@ -28,7 +30,7 @@ class User {
     static showUser = async (req, res) => {
         try {
             const userData = await userModel.findById(req.params.id)
-            
+
             Handler.resHandler(res, 200, true, userData, "user data updated")
 
         }
@@ -57,7 +59,7 @@ class User {
     static deleteUser = async (req, res) => {
         try {
             const userData = await userModel.findByIdAndRemove(req.params.id)
-            
+
             Handler.resHandler(res, 200, true, userData, "user deleted")
 
         }
@@ -80,6 +82,59 @@ class User {
 
     }
 
-    
+    static login = async (req, res) => {
+        try {
+            const user = await userModel.findOne({ code: req.body.code })
+            if (!user) throw new Error("wrong student id")
+            const compared = await bcrypt.compare(req.body.password, user.password)
+            if (!compared) throw new Error("wrong password")
+
+            const token = await user.generateToken()
+
+            Handler.resHandler(res, 200, true, { user, token }, "user logged in")
+
+        }
+        catch (e) {
+            Handler.resHandler(res, 500, false, e.message, "failed to login")
+
+        }
+
+    }
+
+    static profile = async (req, res) => {
+        Handler.resHandler(res, 200, true, req.user, "my profile")
+
+    }
+
+    static logout = async (req, res) => {
+        try {
+
+            // console.log(req.token);
+            // console.log(req.user);
+            // console.log(req.user.tokens);
+            req.user.tokens = req.user.tokens.filter(t => t.token != req.token)
+            await req.user.save()
+            Handler.resHandler(res, 200, true, {}, "logged out")
+        }
+        catch (e) {
+            Handler.resHandler(res, 500, false, e.message, "failed to logout")
+
+        }
+
+
+    }
+    static logoutAll = async (req, res) => {
+        try {
+            req.user.tokens = []
+            await req.user.save()
+            Handler.resHandler(res, 200, true, {}, "logged out all")
+        }
+        catch (e) {
+            Handler.resHandler(res, 500, false, e.message, "failed to logout all")
+
+        }
+
+
+    }
 }
 module.exports = User
