@@ -10,12 +10,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
-import { EditCourseComponent } from './pages/edit-course/edit-course.component';
 import { AddCourseComponent } from './pages/add-course/add-course.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { FormComponent } from './components/form/form.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +27,6 @@ import { FormComponent } from './components/form/form.component';
     DashboardComponent,
     ProfileComponent,
     EditProfileComponent,
-    EditCourseComponent,
     AddCourseComponent,
     NavbarComponent,
     FooterComponent,
