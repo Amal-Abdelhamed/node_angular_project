@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "56f84020-64de-4e60-bb9c-18f0fd2659d6",
+		"name": "final_project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24059975"
+	},
+	"item": [
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "add student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":\"student\",\r\n    \"name\":\"esraaaaaaaaaaaaa\",\r\n    \"code\":\"123\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/addUser",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"addUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show all users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}user/showAllUsers",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"showAllUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit user",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Amal Abdelhameed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/editUser/64407136c477ee5ad40b5706",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"editUser",
+								"64407136c477ee5ad40b5706"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show user data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}user/showUser/64407136c477ee5ad40b5706",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"showUser",
+								"64407136c477ee5ad40b5706"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}user/deleteUser/643b0ede74e010015fc62834",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"deleteUser",
+								"643b0ede74e010015fc62834"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete all users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}user/deleteAllUsers",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"deleteAllUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"code\":\"111\",\r\n    \"password\":\"111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user/login",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}user/myProfile",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"myProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}user/logout",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout all",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}user/logoutAll",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"logoutAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "add course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"course 6\",\r\n    \"description\":\" Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}course/addCourse",
+							"host": [
+								"{{url}}course"
+							],
+							"path": [
+								"addCourse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show all courses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}course/showAllCourses",
+							"host": [
+								"{{url}}course"
+							],
+							"path": [
+								"showAllCourses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit course",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"course 1\",\r\n    \"description\":\"course 1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}course/editCourse/643dca3e79f41079693d6ac1",
+							"host": [
+								"{{url}}course"
+							],
+							"path": [
+								"editCourse",
+								"643dca3e79f41079693d6ac1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show course details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}course/showCourse/643fed111e65b49228b0270b",
+							"host": [
+								"{{url}}course"
+							],
+							"path": [
+								"showCourse",
+								"643fed111e65b49228b0270b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}course/deleteCourse/643dca3e79f41079693d6ac1",
+							"host": [
+								"{{url}}course"
+							],
+							"path": [
+								"deleteCourse",
+								"643dca3e79f41079693d6ac1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete all users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}course/deleteAllCourses",
+							"host": [
+								"{{url}}course"
+							],
+							"path": [
+								"deleteAllCourses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:3000/api/",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQwNzEzNmM0NzdlZTVhZDQwYjU3MDYiLCJpYXQiOjE2ODE5NDQ5NTJ9.y86kZb4NikyOyEAugSmccRe_9YxNARO6JCsUVuAFLdE",
+			"type": "string"
+		}
+	]
+}
