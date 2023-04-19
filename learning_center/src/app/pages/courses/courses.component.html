@@ -1,1 +1,23 @@
-<p>courses works!</p>
+<div class="row">
+  <div class="col-4" *ngIf="loadingFlag; else ShowCourses">
+    <app-spinner></app-spinner>
+  </div>
+  <ng-template #ShowCourses>
+    <div class="col-12 col-md-4 g-4" *ngFor="let course of courses">
+      <div class="col">
+        <div class="card">
+          <!-- <img src="{{item.url}}" alt="" class="card-top-img"> -->
+          <!-- <img [src]="course.url" alt="" class="card-top-img"> -->
+          <div class="card-body">
+            <h3>{{ course.title }}</h3>
+            <a
+              routerLink="/courseDetails/{{ course._id }}"
+              class="btn btn-primary"
+              >More Details</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-courses',
@@ -6,5 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent {
+  courses: any = []
+  loadingFlag = true
+
+  constructor(private global: GlobalService) {
+
+    this.global.getAllCourses().subscribe(res => {
+      this.courses = res.data
+    }, (e) => {
+      console.log(e.message);
+
+    }, () => {
+      this.loadingFlag = false
+
+    }
+    )
+  }
+
 
 }
+
+
