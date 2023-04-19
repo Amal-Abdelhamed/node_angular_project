@@ -31,11 +31,11 @@ class User {
         try {
             const userData = await userModel.findById(req.params.id)
 
-            Handler.resHandler(res, 200, true, userData, "user data updated")
+            Handler.resHandler(res, 200, true, userData, "user")
 
         }
         catch (e) {
-            Handler.resHandler(res, 500, false, e.message, "user failed to update")
+            Handler.resHandler(res, 500, false, e.message, "user not found")
 
         }
     }
@@ -85,9 +85,9 @@ class User {
     static login = async (req, res) => {
         try {
             const user = await userModel.findOne({ code: req.body.code })
-            if (!user) throw new Error("wrong student id")
+            if (!user) throw new Error("invalid user code")
             const compared = await bcrypt.compare(req.body.password, user.password)
-            if (!compared) throw new Error("wrong password")
+            if (!compared) throw new Error("invalid password")
 
             const token = await user.generateToken()
 

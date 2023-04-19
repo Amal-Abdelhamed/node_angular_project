@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 jwt = require('jsonwebtoken')
 
 const userSchema = mongoose.Schema({
-    rule: {
+    role: {
         type: String,
         trim: true,
         required: true,
