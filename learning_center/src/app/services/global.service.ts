@@ -15,4 +15,7 @@ export class GlobalService {
   getCourseDetails(postId: any): Observable<any> {
     return this.http.get(`${this.baseUrl}course/showCourse/${postId}`)
   }
+  getLogin(data: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}user/login`, data)
+  }
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +17,6 @@ import { AddCourseComponent } from './pages/add-course/add-course.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
-import { FormComponent } from './components/form/form.component';
 import { AddStudentComponent } from './pages/add-student/add-student.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SingleCourseComponent } from './pages/single-course/single-course.component';
@@ -39,7 +38,6 @@ import { MyCoursesComponent } from './pages/my-courses/my-courses.component';
     NavbarComponent,
     FooterComponent,
     CardComponent,
-    FormComponent,
     AddStudentComponent,
     SpinnerComponent,
     SingleCourseComponent,
@@ -50,7 +48,8 @@ import { MyCoursesComponent } from './pages/my-courses/my-courses.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

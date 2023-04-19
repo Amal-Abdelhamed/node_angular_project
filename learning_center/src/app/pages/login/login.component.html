@@ -6,19 +6,54 @@
           <h2 class="p-3">Login</h2>
         </div>
         <div class="card-body">
-          <form>
+          <form #loginForm="ngForm" (ngSubmit)="handleSubmit(loginForm)">
             <div class="mb-4">
-              <label for="username" class="form-label">User Code</label>
-              <input type="text" class="form-control" id="username" />
+              <label for="usercode" class="form-label">User Code</label>
+              <input
+                type="text"
+                class="form-control"
+                id="usercode"
+                name="code"
+                [(ngModel)]="model.code"
+                #code="ngModel"
+                required
+                (input)="msgErr = null"
+              />
+              <div
+                class="alert alert-danger my-2 p-2"
+                style="font-size: 12px"
+                role="alert"
+                *ngIf="loginForm.submitted && code.errors?.['required']"
+              >
+                code is required
+              </div>
             </div>
             <div class="mb-4">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" />
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                [(ngModel)]="model.password"
+                #password="ngModel"
+                required
+                (input)="msgErr = null"
+              />
+              <div
+                class="alert alert-danger my-2 p-2"
+                style="font-size: 12px"
+                role="alert"
+                *ngIf="loginForm.submitted && password.errors?.['required']"
+              >
+                password is required
+              </div>
             </div>
             <div class="d-grid">
-              <button type="submit" class="btn btn-info text-light">
-                Login
-              </button>
+              <button class="btn btn-info text-light">Login</button>
+            </div>
+            <div class="alert alert-danger my-2 text-center" *ngIf="msgErr">
+              {{ msgErr }}
             </div>
           </form>
         </div>

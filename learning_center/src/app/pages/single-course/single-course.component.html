@@ -1,2 +1,23 @@
-<h1>course:{{ course?.title }}</h1>
-<p>content:{{ course?.description }}</p>
+<div class="row">
+  <div class="col-md-8">
+    <h1>course:{{ course?.title }}</h1>
+    <p>content:{{ course?.description }}</p>
+  </div>
+  <div class="col-md-4">
+    <h3>other courses</h3>
+    <div class="col-12 my-3" *ngFor="let course of courses">
+      <div class="col">
+        <div class="card">
+          <!-- <img src="{{item.url}}" alt="" class="card-top-img"> -->
+          <!-- <img [src]="course.url" alt="" class="card-top-img"> -->
+          <div class="card-body">
+            <h3>{{ course.title }}</h3>
+            <a routerLink="/courseDetails/{{ course._id }}" class="btn btn-info"
+              >More Details</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

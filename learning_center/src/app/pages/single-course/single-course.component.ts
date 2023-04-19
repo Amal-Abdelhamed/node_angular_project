@@ -11,20 +11,27 @@ export class SingleCourseComponent {
   course: any
   loadingFlag = true
   id: any
+  courses: any = []
+
   constructor(private global: GlobalService, private _activatedRout: ActivatedRoute) {
-    this.id = this._activatedRout.snapshot.paramMap.get('courseId')
-    global.getCourseDetails(this.id).subscribe(res => {
-      this.course = res.data
+    this._activatedRout.paramMap.subscribe(params => {
+      this.id = params.get('courseId')
 
-    }, (e) => {
-      console.log(e.message);
+      global.getCourseDetails(this.id).subscribe(res => {
+        this.course = res.data
 
-    }, () => {
-      this.loadingFlag = false
+      }, (e) => {
+        console.log(e.message);
 
-    }
-    )
+      }, () => {
+        this.loadingFlag = false
+
+      }
+      )
+    })
+    this.global.getAllCourses().subscribe(res => {
+      this.courses = res.data
+    })
   }
-
 
 }
